@@ -1,57 +1,43 @@
-
 <!doctype html>
 <html lang="en">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Business Card OCR → Google Sheets</title>
-  <link rel="stylesheet" href="styles.css">
-  <script src="https://cdn.jsdelivr.net/npm/tesseract.js@5/dist/tesseract.min.js"></script>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1"/>
+<title>Tri Rudra OCR → Google Sheet</title>
+<link rel="stylesheet" href="styles.css"/>
+<script src="https://cdn.jsdelivr.net/npm/tesseract.js@5/dist/tesseract.min.js"></script>
 </head>
 <body>
-  <div class="container">
-    <header>
-      <h1>Business Card OCR → Google Sheets</h1>
-      <p>Bulk-upload card images. We OCR, parse fields, and save each row to your Google Sheet.</p>
-      <div id="quota"></div>
-    </header>
+<div class="wrap">
+  <header>
+    <h1>Tri Rudra — Business Card OCR</h1>
+    <p>Upload multiple card images. OCR runs in-browser and writes rows to Google Sheet.</p>
+    <div id="limitInfo"></div>
+  </header>
 
-    <section id="uploader" class="card">
-      <label for="fileInput" class="btn">Select Images</label>
-      <input id="fileInput" type="file" accept="image/*" multiple hidden>
-      <div id="dropzone">or Drag & Drop images here</div>
-      <div id="progress"></div>
-    </section>
+  <section class="card">
+    <div class="controls">
+      <label class="btn" for="fileInput">Select Images</label>
+      <input id="fileInput" type="file" accept="image/*" multiple hidden/>
+      <button id="testBtn" class="btn secondary">Test POST</button>
+    </div>
+    <div id="dropzone" class="drop">Drag & drop images here</div>
+    <pre id="log" class="log"></pre>
+  </section>
 
-    <section class="card">
-      <h2>Results</h2>
-      <table id="results">
-        <thead>
-          <tr>
-            <th>Preview</th>
-            <th>Name</th>
-            <th>Phone</th>
-            <th>Email</th>
-            <th>Company</th>
-            <th>Website</th>
-            <th>Address</th>
-            <th>Designation</th>
-            <th>Status</th>
-          </tr>
-        </thead>
-        <tbody id="resultsBody"></tbody>
-      </table>
-      <div class="actions">
-        <button id="downloadCsv" class="btn secondary">Download CSV</button>
-      </div>
-    </section>
+  <section class="card">
+    <h2>Results</h2>
+    <table id="results">
+      <thead><tr>
+        <th>Preview</th><th>Name</th><th>Phone</th><th>Email</th><th>Company</th><th>Website</th><th>Address</th><th>Designation</th><th>Status</th>
+      </tr></thead>
+      <tbody id="resultsBody"></tbody>
+    </table>
+    <div class="actions"><button id="downloadCsv" class="btn secondary">Download CSV</button></div>
+  </section>
 
-    <footer>
-      <small>© 2025 Tri Rudra IT Services • Client-side OCR MVP</small>
-    </footer>
-  </div>
-
-  <script type="module" src="parser.js"></script>
-  <script type="module" src="script.js"></script>
+  <footer><small>© Tri Rudra IT Services</small></footer>
+</div>
+<script type="module" src="app.js"></script>
 </body>
 </html>
